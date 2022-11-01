@@ -1,3 +1,3 @@
 pub mod lib;
-pub mod day00;
 pub mod hive;
+pub mod day00;
