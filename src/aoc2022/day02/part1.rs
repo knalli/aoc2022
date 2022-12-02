@@ -26,25 +26,17 @@ fn play(scope: &PuzzleScope, puzzle: &str) -> i32 {
 }
 
 pub fn score_round(opponent_select: RPS, player_select: RPS) -> i32 {
-    let player_score = if player_select == RPS::ROCK {
-        1
-    } else if player_select == RPS::PAPER {
-        2
-    } else if player_select == RPS::SCISSOR {
-        3
-    } else {
-        panic!("invalid player select")
-    };
     let win = player_select.wins(&opponent_select);
-
     let mut result = 0;
-    result += player_score;
-    result += if win == Winning::YES {
-        6
-    } else if win == Winning::DRAW {
-        3
-    } else {
-        0
+    result += match player_select {
+        RPS::ROCK => 1,
+        RPS::PAPER => 2,
+        RPS::SCISSOR => 3,
+    };
+    result += match win {
+        Winning::YES => 6,
+        Winning::DRAW => 3,
+        Winning::NO => 0,
     };
     result
 }

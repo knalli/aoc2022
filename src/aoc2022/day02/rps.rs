@@ -42,22 +42,18 @@ impl RPS {
     }
 
     pub fn require_for_win(&self) -> RPS {
-        if *self == RPS::ROCK {
-            return RPS::PAPER;
-        } else if *self == RPS::PAPER {
-            return RPS::SCISSOR;
-        } else {
-            return RPS::ROCK;
+        match self {
+            RPS::ROCK => RPS::PAPER,
+            RPS::PAPER => RPS::SCISSOR,
+            RPS::SCISSOR => RPS::ROCK,
         }
     }
 
     pub fn require_for_lost(&self) -> RPS {
-        if *self == RPS::ROCK {
-            return RPS::SCISSOR;
-        } else if *self == RPS::PAPER {
-            return RPS::ROCK;
-        } else {
-            return RPS::PAPER;
+        match self {
+            RPS::ROCK => RPS::SCISSOR,
+            RPS::PAPER => RPS::ROCK,
+            RPS::SCISSOR => RPS::PAPER,
         }
     }
 }
