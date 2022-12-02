@@ -1,3 +1,5 @@
+extern crate core;
+
 use crate::aoc2022::hive::{Day, Hive, Part};
 use crate::aoc2022::lib::common::{parse_int, PuzzleScope};
 
@@ -9,6 +11,8 @@ fn main() {
     hive.register(Day::D00, Part::P02, aoc2022::day00::part2::run);
     hive.register(Day::D01, Part::P01, aoc2022::day01::part1::run);
     hive.register(Day::D01, Part::P02, aoc2022::day01::part2::run);
+    hive.register(Day::D02, Part::P01, aoc2022::day02::part1::run);
+    hive.register(Day::D02, Part::P02, aoc2022::day02::part2::run);
     //GEN_HIVE_REGISTER
 
     let day = format!("d{:02}", parse_int(std::env::var("DAY").unwrap_or("1".to_string()).as_str()));

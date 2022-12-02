@@ -6,6 +6,7 @@ use crate::aoc2022::lib::common::PuzzleScope;
 pub enum Day {
     D00,
     D01,
+    D02,
     //GEN_DAY_ITEM
 }
 
@@ -24,6 +25,7 @@ impl Day {
         match self {
             Day::D00 => String::from("d00"),
             Day::D01 => String::from("d01"),
+            Day::D02 => String::from("d02"),
             //GEN_DAY_STR
             _ => panic!("invalid day")
         }
@@ -33,6 +35,7 @@ impl Day {
         match self {
             Day::D00 => 0,
             Day::D01 => 1,
+            Day::D02 => 2,
             //GEN_DAY_INT
             _ => panic!("invalid day")
         }
@@ -42,6 +45,7 @@ impl Day {
         match str.to_lowercase().as_str() {
             "d00" => Ok(Day::D00),
             "d01" => Ok(Day::D01),
+            "d02" => Ok(Day::D02),
             //GEN_DAY_PARSE
             _ => Err("invalid day".to_string())
         }
