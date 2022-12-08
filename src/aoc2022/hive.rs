@@ -11,6 +11,7 @@ pub enum Day {
     D04,
     D05,
     D06,
+    D08,
     //GEN_DAY_ITEM
 }
 
@@ -34,6 +35,7 @@ impl Day {
             Day::D04 => String::from("d04"),
             Day::D05 => String::from("d05"),
             Day::D06 => String::from("d06"),
+            Day::D08 => String::from("d08"),
             //GEN_DAY_STR
             _ => panic!("invalid day")
         }
@@ -48,6 +50,7 @@ impl Day {
             Day::D04 => 4,
             Day::D05 => 5,
             Day::D06 => 6,
+            Day::D08 => 8,
             //GEN_DAY_INT
             _ => panic!("invalid day")
         }
@@ -62,6 +65,7 @@ impl Day {
             "d04" => Ok(Day::D04),
             "d05" => Ok(Day::D05),
             "d06" => Ok(Day::D06),
+            "d08" => Ok(Day::D08),
             //GEN_DAY_PARSE
             _ => Err("invalid day".to_string())
         }

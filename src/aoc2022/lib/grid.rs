@@ -18,6 +18,27 @@ impl DynGrid2D {
         };
     }
 
+    pub fn to_string(&self) -> String {
+        let mut res: String = "".to_string();
+        for y in 0..self.height {
+            for x in 0..self.width {
+                if let Some(cell) = self.get(&(x, y)) {
+                    match cell {
+                        Cell::Bool(v) => res = res + (if v { "Y" } else { "N" }),
+                        Cell::Int(v) => res = res + &*v.to_string(),
+                        Cell::Text(v) => res = res + &*v,
+                        Cell::Char(c) => res = res + &*String::from(c),
+                        _ => res = res + " ",
+                    }
+                } else {
+                    res = res + " ";
+                }
+            }
+            res = res + "\n"
+        }
+        res
+    }
+
     pub fn height(&self) -> i32 { self.height }
 
     pub fn width(&self) -> i32 { self.width }
@@ -26,7 +47,7 @@ impl DynGrid2D {
         self.values.insert(pos, value);
     }
 
-    fn get(&self, pos: &(i32, i32)) -> Option<Cell> {
+    pub fn get(&self, pos: &(i32, i32)) -> Option<Cell> {
         self.values.get(pos).cloned()
     }
 }
@@ -83,6 +104,7 @@ impl Grid2D {
         return self.height * self.width;
     }
 
+
     pub fn get(&self, x: i32, y: i32) -> Option<&GridValue> {
         if (0..self.width).contains(&x) && (0..self.height).contains(&y) {
             //self.values.entry((x, y)).or_insert(GridValue::None);
@@ -103,7 +125,7 @@ impl Grid2D {
         }
     }
 
-    pub fn each(&mut self) -> Vec<(Point2D, Option<&GridValue>)> {
+    pub fn each(&self) -> Vec<(Point2D, Option<&GridValue>)> {
         let mut result = Vec::with_capacity(self.size() as usize);
         let w = self.width;
         let h = self.height;
@@ -113,6 +135,12 @@ impl Grid2D {
             }
         }
         return result;
+    }
+    pub fn height(&self) -> i32 {
+        self.height
+    }
+    pub fn width(&self) -> i32 {
+        self.width
     }
 }
 

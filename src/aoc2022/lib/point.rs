@@ -13,7 +13,7 @@ impl Display for Point2D {
 }
 
 impl Point2D {
-    pub fn create(x: i32, y: i32) -> Point2D {
+    pub fn create(x: i32, y: i32) -> Self {
         Point2D {
             x,
             y,
@@ -25,6 +25,22 @@ impl Point2D {
     }
     pub fn y(&self) -> i32 {
         self.y
+    }
+
+    pub fn left(&self) -> Self {
+        Point2D::create(self.x() - 1, self.y())
+    }
+
+    pub fn right(&self) -> Self {
+        Point2D::create(self.x() + 1, self.y())
+    }
+
+    pub fn top(&self) -> Self {
+        Point2D::create(self.x(), self.y() - 1)
+    }
+
+    pub fn bottom(&self) -> Self {
+        Point2D::create(self.x(), self.y() + 1)
     }
 }
 
