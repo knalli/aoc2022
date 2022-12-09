@@ -23,6 +23,8 @@ fn main() {
     hive.register(Day::D06, Part::P02, aoc2022::day06::part2::run);
     hive.register(Day::D08, Part::P01, aoc2022::day08::part1::run);
     hive.register(Day::D08, Part::P02, aoc2022::day08::part2::run);
+    hive.register(Day::D09, Part::P01, aoc2022::day09::part1::run);
+    hive.register(Day::D09, Part::P02, aoc2022::day09::part2::run);
     //GEN_HIVE_REGISTER
 
     let day = format!("d{:02}", parse_int(std::env::var("DAY").unwrap_or("1".to_string()).as_str()));
