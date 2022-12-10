@@ -21,6 +21,8 @@ fn main() {
     hive.register(Day::D05, Part::P02, aoc2022::day05::part2::run);
     hive.register(Day::D06, Part::P01, aoc2022::day06::part1::run);
     hive.register(Day::D06, Part::P02, aoc2022::day06::part2::run);
+    hive.register(Day::D07, Part::P01, aoc2022::day07::part1::run);
+    hive.register(Day::D07, Part::P02, aoc2022::day07::part2::run);
     hive.register(Day::D08, Part::P01, aoc2022::day08::part1::run);
     hive.register(Day::D08, Part::P02, aoc2022::day08::part2::run);
     hive.register(Day::D09, Part::P01, aoc2022::day09::part1::run);
