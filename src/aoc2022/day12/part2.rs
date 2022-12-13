@@ -1,7 +1,6 @@
 use std::cell::RefCell;
 use crate::aoc2022::day12::part1::{fewest_steps, Input, parse_input};
 use crate::aoc2022::lib::common::{measure_time_and_print, PuzzleScope};
-use crate::aoc2022::lib::io;
 use crate::aoc2022::lib::style::{write_header, write_solution};
 
 pub fn run(scope: PuzzleScope) {
