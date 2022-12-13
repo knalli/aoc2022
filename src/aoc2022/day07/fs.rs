@@ -259,10 +259,10 @@ fn fs_demo() {
     fs.add_file(demo, "abc", 123);
     fs.add_file(demo, "abc1", 126);
     println!("ls");
-    for d in fs.ls(demo) {
+    for d in fs._ls(demo) {
         println!("{}", d.name);
     }
-    println!("size = {}", fs.size(root).unwrap());
-    fs.remove(root, demo);
-    println!("size = {}", fs.size(root).unwrap());
+    println!("size = {}", fs.size_total(root).unwrap());
+    fs._remove(root, demo);
+    println!("size = {}", fs.size_total(root).unwrap());
 }
