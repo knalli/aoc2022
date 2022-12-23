@@ -1,6 +1,7 @@
 use std::fmt::{Display, Formatter};
 use std::ops::Add;
 
+#[derive(Copy, Clone, Debug, Hash, Eq, PartialEq)]
 pub struct Point2D {
     x: i32,
     y: i32,
@@ -41,6 +42,21 @@ impl Point2D {
 
     pub fn bottom(&self) -> Self {
         Point2D::create(self.x(), self.y() + 1)
+    }
+
+    pub fn adjacents(&self) -> Vec<Self> {
+        let x = self.x();
+        let y = self.y();
+        vec![
+            Point2D::create(x - 1, y - 1),
+            Point2D::create(x, y - 1),
+            Point2D::create(x + 1, y - 1),
+            Point2D::create(x - 1, y),
+            Point2D::create(x + 1, y),
+            Point2D::create(x - 1, y + 1),
+            Point2D::create(x, y + 1),
+            Point2D::create(x + 1, y + 1),
+        ]
     }
 }
 
