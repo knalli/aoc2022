@@ -1,15 +1,14 @@
-use std::fmt::{Display, Formatter};
 use std::ops::Add;
 
-#[derive(Copy, Clone, Debug, Hash, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Hash, Eq, PartialEq)]
 pub struct Point2D {
-    x: i32,
-    y: i32,
+    pub x: i32,
+    pub y: i32,
 }
 
-impl Display for Point2D {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "({}/{})", self.x, self.y)
+impl ToString for Point2D {
+    fn to_string(&self) -> String {
+        format!("({}/{})", self.x, self.y)
     }
 }
 
@@ -57,6 +56,21 @@ impl Point2D {
             Point2D::create(x, y + 1),
             Point2D::create(x + 1, y + 1),
         ]
+    }
+
+    pub fn adjacents4(&self) -> Vec<Self> {
+        let x = self.x();
+        let y = self.y();
+        vec![
+            Point2D::create(x, y - 1),
+            Point2D::create(x - 1, y),
+            Point2D::create(x + 1, y),
+            Point2D::create(x, y + 1),
+        ]
+    }
+
+    pub fn manhatten_distance(&self, other: &Self) -> usize {
+        (self.x - other.x).abs() as usize + (self.y - other.y).abs() as usize
     }
 }
 
